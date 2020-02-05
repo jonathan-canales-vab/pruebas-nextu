@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
+@-webkit-keyframes slideIn{
+	0%{
+		margin-top:150%;
+	}
+	60%{
+		margin-top:-5%;
+	}
+	100%{
+		margin-top:0%;
+	}
+}
+
+body{
+  font-family: 'Dancing Script';
+  color: black;
+  background-color: #02010a;
+}
+
+a, a:link, a:visited {
+  color: black;
+}
+
+#contenido {
+  width: 100%;
+  animation: slideIn 1s;
+}
+
+img {
+  box-shadow: 2px 2px 2px #02010a;
+}
+
+header {
+  background-color: #5b7989;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+header h1 {
+  color: white;
+  text-shadow: 2px 2px 2px #02010a;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+header nav {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: auto 0px;
+}
+
+header nav a, header nav a:link, header nav a:visited {
+  color: white;
+  margin-left: 10px;
+}
+
+a.menuActual {
+  text-decoration: none;
+}
+
+#seccionImagenPrincipal {
+  background-color: #82c3a6;
+  text-align: center;
+}
+#seccionImagenPrincipal img {
+  width: 80%;
+  margin: 10px auto;
+}
+
+#seccionImagenSecundaria {
+  background-color: #d5c75f;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#seccionImagenSecundaria article {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+#seccionImagenSecundaria article img {
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid;
+  box-shadow: 3px 3px 3px #82c3a6;
+}
+#seccionImagenSecundaria article h2 {
+  color: black;
+  margin: 10px auto;
+}
+.imgPaisaje {
+  transition: transform 1s;
+}
+.imgPaisaje:hover {
+  transform: rotateZ(10deg);
+}
+.imgRetrato {
+  transition: transform 1s;
+}
+.imgRetrato:hover {
+  transform: translate(20px, -5px);
+}
+
+#seccionGaleria {
+  background-color: #d5c75f;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#seccionGaleria article {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+#seccionGaleria article img {
+  width: 80%;
+  margin: 10px auto;
+}
+
+#seccionGaleria article:first-child img {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+#seccionGaleria article:nth-child(2n) img { /* pares desde 2 */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+#seccionGaleria article:nth-child(3) img {
+  -webkit-filter: sepia(90%);
+  filter: sepia(90%);
+}
+
+footer {
+  background-color: #C6d5c5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+}
+footer .columna {
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+
+}
+
+
+@media (min-width: 900px) {
+  #contenido {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header h1 {
+    width: 50%;
+    text-align: left;
+  }
+  header nav {
+    width: 50%;
+    text-align: right;
+  }
+
+  #seccionImagenSecundaria article {
+    width: 50%;
+  }
+
+  #seccionGaleria article {
+    width: 33%;
+  }
+
+  footer .columna {
+    width: 21%;
+    padding: 0 2%;
+  }
+}
