@@ -1,0 +1,66 @@
+.barra-superior > nav {
+  border-radius: 5px;
+}
+/**
+.barra-superior a{
+  color: #e4e4e4;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+.nav > li {
+	position: relative;
+	display: inline-block;
+}
+.navbar-nav {
+	margin: 7.5px -15px;
+}
+.navbar-header{
+  display: inline-block;
+
+}
+.navbar-brand {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.navbar-brand p {
+	font-family: 'Berkshire Swash', cursive;
+	top: -5px;
+	position: relative;
+}
+
+.navbar-nav > li > a {
+	padding: 0;
+	margin: 0 15px;
+	text-align: center;
+}
+.navbar-nav > li > a.active {
+	border-bottom: solid 2px;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+	text-decoration: none;
+	background-color: transparent;
+  color: white
+}
+.item-counter {
+	position: absolute;
+	background: #c82f23;
+	border-radius: 50%;
+	padding: 2px;
+	font-size: 9px;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	color: white;
+	font-weight: 800;
+	left: 10px;
+	top: 11px;
+	line-height: 15px;
+}
+**/

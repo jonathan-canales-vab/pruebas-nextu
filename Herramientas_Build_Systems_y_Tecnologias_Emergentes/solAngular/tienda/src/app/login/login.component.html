@@ -1,0 +1,24 @@
+<div class="pag-login">
+  <div class="container">
+    <div class="col-sm-6 form-container animated fadeIn slow">
+      <form (ngSubmit)="checkLogin(f)" #f="ngForm">
+        <h4 class="text-center white-text">Iniciar Sesión</h4>
+        <div class="form-group">
+          <label for="email" class="white-text">Correo Electrónico</label>
+          <input ngModel name="email" required type="email" id="email" placeholder="test@email.com" class="form-control input-email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+        </div>
+        <div class="form-group">
+          <label for="password" class="white-text">Contraseña</label>
+          <input ngModel name="password" required type="password" id="password" placeholder="test" class="form-control input-email" >
+        </div>
+        <div class="row text-center">
+          <div class="mensaje"> <!--Mostrar el mensaje de error de inicio de sesión-->
+            {{mensaje}}
+          </div>
+        </div>
+        <!--Deshabilitar el botón de enviar si los datos ingresados en el formulario son inválidos-->
+        <button type="submit" class="btn btn-success center-block" >INGRESAR</button>
+      </form>
+    </div>
+  </div>
+</div>

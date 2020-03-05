@@ -1,0 +1,26 @@
+.pag-login {
+  background-image: url('./assets/img/login-fondo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  top: 25%;
+  position: relative;
+}
+.form-container{
+  position: relative;
+  float: none;
+  margin: auto;
+}
+form .ng-touched.ng-invalid {
+	border: 1px solid red;
+}
+
+.white-text{
+  color: white;
+}

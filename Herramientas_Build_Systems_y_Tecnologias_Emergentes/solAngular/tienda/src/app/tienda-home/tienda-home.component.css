@@ -1,0 +1,21 @@
+.pag-home {
+  background-image: url('./assets/img/main-fondo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.lista-productos {
+	background: #f8f9fa;
+	border-radius: 5px;
+	padding: 20px;
+	height: 85vh;
+  margin-top: 25px;
+}
+
+.catalogo-top {
+  /*margin-top: 10px;*/
+}
