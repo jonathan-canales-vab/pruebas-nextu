@@ -1,0 +1,11 @@
+Acceso al Ssistema
+1.- Instalar NodeJS
+2.- Instalar MongoDB
+3.- Arrancar servicios de MongoDB
+4.- Instalar dependencias con: npm install
+5.- Arrancar servicios de NodeJS con: node index.js
+6.- abrir su navegador (http://localhost:3000/)
+7.- Login con:
+	usuario: jonathan.canales@vab.cl
+	clave: 123456
+	
