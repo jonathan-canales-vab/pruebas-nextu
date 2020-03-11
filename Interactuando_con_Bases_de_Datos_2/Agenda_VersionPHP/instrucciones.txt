@@ -1,0 +1,11 @@
+1.- crear base de datos "agenda_jcs" e importar el archivo agenda_jcs.sql
+
+2.- para crear los usuarios ir a la ruta
+	http://localhost/agenda/server/create_user.php
+
+3.- Autenticar en la ruta 
+	http://localhost/agenda/client/
+	usuario = jonathan.canales@vab.cl
+	clave	= 123456
+
+	
