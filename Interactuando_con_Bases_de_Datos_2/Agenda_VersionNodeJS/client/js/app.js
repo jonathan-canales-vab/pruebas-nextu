@@ -1,10 +1,11 @@
 
 class EventManager {
     constructor() {
-        this.urlBase = "/events"
+        this.urlBase = "/server/eventos"
         this.obtenerDataInicial()
         this.inicializarFormulario()
         this.guardarEvento()
+        this.cerrarSesion()
     }
 
     obtenerDataInicial() {
@@ -15,9 +16,11 @@ class EventManager {
     }
 
     eliminarEvento(evento) {
-        let eventId = evento.id
-        $.post('/events/delete/'+eventId, {id: eventId}, (response) => {
+        let eventId = evento._id
+        let url = this.urlBase + "/delete"
+        $.post(url, {id: eventId}, (response) => {
             alert(response)
+            window.location.href = "/main.html"
         })
     }
 
@@ -47,8 +50,9 @@ class EventManager {
                 }
                 $.post(url, ev, (response) => {
                     alert(response)
+                    //$('.calendario').fullCalendar('renderEvent', ev)
+                    window.location.href = "/main.html"
                 })
-                $('.calendario').fullCalendar('renderEvent', ev)
             } else {
                 alert("Complete los campos obligatorios para el evento")
             }
@@ -87,7 +91,7 @@ class EventManager {
                 center: 'title',
                 right: 'month,agendaWeek,basicDay'
             },
-            defaultDate: '2016-11-01',
+            defaultDate: '2020-03-01',
             navLinks: true,
             editable: true,
             eventLimit: true,
@@ -117,6 +121,38 @@ class EventManager {
                 }
             })
         }
+
+        cerrarSesion() {
+            $('.logoutText').on('click', (ev) => {
+                ev.preventDefault()
+                var url = "/server/logout"
+                $.post(url, (res) => {
+                    window.location.href = "/index.html";
+                })
+
+            })
+        }
+
+      actualizarEvento(evento) {
+        var start='', end='';
+        if(evento.end === null){
+          start = moment(evento.start).format('YYYY-MM-DD');
+        }
+        else{
+            start = moment(evento.start).format('YYYY-MM-DD HH:mm:ss');
+            end = moment(evento.end).format('YYYY-MM-DD HH:mm:ss');
+        }
+
+        var url = this.urlBase + '/update'
+        var  data = {
+              _id: evento._id,
+              start: start,
+              end: end
+        }
+        $.post(url, data, (response) => {
+          alert(response)
+        })
+      }
     }
 
     const Manager = new EventManager()

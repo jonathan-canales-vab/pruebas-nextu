@@ -1,35 +1,8 @@
 const MongoClient = require('mongodb').MongoClient
+const ObjectId = require('mongodb').ObjectID
+
 const url = 'mongodb://localhost'
 const nombreBD = 'AgendaJCS'
-
-/**
-var client = MongoClient.connect(url, function(err, client){
-	if (err){
-		console.log('ERROR-->', err);
-	}
-	else {
-		console.log('conexion ok');
-
-    let db = client.db('AgendaJCS')
-    let usuarios = db.collection('usuarios');
-
-    usuarios.deleteMany({}, (error, result) => {
-      console.log('Resultado de eliminar usuarios', result.deletedCount);
-    });
-
-    usuarios.insertMany([
-      {nombre: 'Jonathan', email:'jonathan.canales@vab.cl', clave: '123456'},
-      {nombre: 'Marcelo', email:'marcelo@vab.cl', clave: '123456'},
-      {nombre: 'Claudia', email:'claudia@vab.cl', clave: '123456'}
-    ], (error, result) => {
-      console.log('Resultado de insert', result.toString());
-    });
-
-    client.close()
-	}
-});
-**/
-
 
 module.exports.usuarioPorLogin = function(login, callback) {
   console.log('Login = ' + login)
@@ -42,16 +15,105 @@ module.exports.usuarioPorLogin = function(login, callback) {
   		console.log('conexion ok');
 
       let db = client.db('AgendaJCS')
-      let usuarios = db.collection('usuarios');
+      let colUsuarios = db.collection('usuarios');
 
-      usuarios.find({email: login}).toArray(function(err, docs){
-        console.log('usuario ->', docs)
+      colUsuarios.find({email: login}).toArray(function(err, docs){
         client.close()
-
         callback(err, docs);
       })
 
+  	}
+  });
+}
 
+module.exports.eventosPorUsuario = function(usuarioID, callback) {
+  console.log('UsuarioID = ' + usuarioID)
+
+  var client = MongoClient.connect(url, function(err, client){
+  	if (err){
+  		console.log('ERROR-->', err);
+  	}
+  	else {
+  		console.log('conexion ok');
+
+      let db = client.db('AgendaJCS')
+      let colEventos = db.collection('eventos');
+
+      colEventos.find({'usuarioID': usuarioID}).toArray(function(err, eventos){
+        client.close()
+        callback(err, eventos);
+      })
+  	}
+  });
+}
+
+module.exports.eventosCrear = function(usuarioID, evento, callback) {
+  console.log('UsuarioID = ' + usuarioID)
+
+	evento['usuarioID'] = usuarioID
+
+	console.log('Nuevo Evento', evento)
+
+  var client = MongoClient.connect(url, function(err, client){
+  	if (err){
+  		console.log('ERROR-->', err);
+  	}
+  	else {
+  		console.log('conexion ok');
+
+      let db = client.db('AgendaJCS')
+      let colEventos = db.collection('eventos');
+
+			colEventos.insertOne(evento, (err, result) => {
+	      console.log('Resultado de insert', result.toString());
+        client.close()
+        callback(err, result);
+	    });
+  	}
+  });
+}
+
+module.exports.eventosActualizar = function(usuarioID, eventoID, evento, callback) {
+  console.log('UsuarioID', usuarioID, 'eventoID', eventoID)
+	console.log('Evento', evento)
+
+  var client = MongoClient.connect(url, function(err, client){
+  	if (err){
+  		console.log('ERROR-->', err);
+  	}
+  	else {
+  		console.log('conexion ok');
+
+      let db = client.db('AgendaJCS')
+      let colEventos = db.collection('eventos');
+
+			colEventos.updateOne({'usuarioID':usuarioID, '_id':ObjectId(eventoID)}, {$set: evento}, (err, result) => {
+	      console.log('Resultado de update', result.toString());
+        client.close()
+        callback(err, result);
+	    });
+  	}
+  });
+}
+
+module.exports.eventosEliminar = function(usuarioID, eventoID, callback) {
+  console.log('UsuarioID', usuarioID, 'eventoID', eventoID)
+
+  var client = MongoClient.connect(url, function(err, client){
+  	if (err){
+  		console.log('ERROR-->', err);
+  	}
+  	else {
+  		console.log('conexion ok');
+
+      let db = client.db('AgendaJCS')
+      let colEventos = db.collection('eventos');
+
+			colEventos.deleteOne({'usuarioID':usuarioID, '_id':ObjectId(eventoID)}, (err, result) => {
+	      console.log('Resultado de delete', result.toString());
+        client.close()
+        callback(err, result);
+	    });
   	}
   });
 }

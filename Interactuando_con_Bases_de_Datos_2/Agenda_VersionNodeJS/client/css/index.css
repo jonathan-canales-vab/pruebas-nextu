@@ -204,6 +204,7 @@ input {
 .logoutText {
   font-size: 18px;
   margin-top: 4px;
+  cursor: pointer;
 }
 
 
