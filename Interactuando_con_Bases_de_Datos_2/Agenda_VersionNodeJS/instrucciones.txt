@@ -1,0 +1,9 @@
+1.- Inicializar base de datos con:
+  node iniciar_bd.js
+
+2.- Iniciar Servidor con
+  node index.js
+
+3.- conectarse a http://localhost/
+4.- usuario: jonathan.canales@vab.cl
+    clave: 123456
