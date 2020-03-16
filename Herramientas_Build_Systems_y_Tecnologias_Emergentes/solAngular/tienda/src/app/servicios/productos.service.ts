@@ -34,4 +34,13 @@ export class ProductosService {
       );
     //return this.productos;
   }
+
+  getProducto(idProducto: number){
+    for(let prod of this.productos) {
+      if(prod['id']== idProducto) {
+        return prod;
+      }
+    }
+    return null;
+  }
 }

@@ -10,13 +10,15 @@ import { TiendaHomeComponent } from './tienda-home/tienda-home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import { ProductosService } from './servicios/productos.service';
+import { DetalleProdComponent } from './detalle-prod/detalle-prod.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TiendaHomeComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    DetalleProdComponent
   ],
   imports: [
     BrowserModule,

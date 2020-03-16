@@ -1,0 +1,26 @@
+<div class="pag-detalle">
+  <div class="container">
+    <nav-menu></nav-menu>
+
+    <div class="lista-productos container animated fadeInDownBig fast">
+
+      <h1 class="text-shadow">{{producto.nombre}}</h1>
+
+      <div class="row">
+        <div class="col-7">
+            <img src="{{'./assets/img/' + producto.img}}" alt="{{producto.nombre}}" class="img-prod">
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-4">
+          <div><b>Precio:</b> $ {{producto.precio}}</div>
+          <div><b>Unidades Disponibles: </b>{{producto.stock ? producto.stock : 'Agotado'}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <a [routerLink]="'/home'" class="btn btn-primary" role="button">Atras</a>
+      </div>
+    <div>
+  </div>
+</div>
