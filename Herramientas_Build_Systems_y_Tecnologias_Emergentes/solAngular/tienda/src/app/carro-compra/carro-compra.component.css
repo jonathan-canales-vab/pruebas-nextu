@@ -1,0 +1,43 @@
+.pag-carro {
+  background-image: url('./assets/img/main-fondo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.lista-productos {
+	background: #f8f9fa;
+	border-radius: 5px;
+	padding: 20px;
+	height: 85vh;
+  margin-top: 25px;
+}
+
+.catalogo-top {
+  /*margin-top: 10px;*/
+}
+
+.catalogo {
+  height: 710px;
+  overflow: auto;
+}
+
+.box {
+	box-shadow: 0 0 2px 0 lightgray;
+	background: white;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+  margin: 0 0 10px 0;
+}
+.box .img{
+  position: relative;
+
+}
+
+.box img {
+  width: 100%;
+}

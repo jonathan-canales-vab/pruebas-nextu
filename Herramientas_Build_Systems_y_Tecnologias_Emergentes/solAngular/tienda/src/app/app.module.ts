@@ -10,7 +10,9 @@ import { TiendaHomeComponent } from './tienda-home/tienda-home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import { ProductosService } from './servicios/productos.service';
+import { CarroCompraService } from './servicios/carro-compra.service'
 import { DetalleProdComponent } from './detalle-prod/detalle-prod.component';
+import { CarroCompraComponent } from './carro-compra/carro-compra.component';
 
 @NgModule({
   declarations: [
@@ -18,16 +20,17 @@ import { DetalleProdComponent } from './detalle-prod/detalle-prod.component';
     LoginComponent,
     TiendaHomeComponent,
     NavMenuComponent,
-    DetalleProdComponent
+    DetalleProdComponent,
+    CarroCompraComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    TiendaRoutingModule //Agregar el modulo TiendaRouting para el manejo de las URL
+    TiendaRoutingModule
   ],
-  providers: [ProductosService],
+  providers: [ProductosService, CarroCompraService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

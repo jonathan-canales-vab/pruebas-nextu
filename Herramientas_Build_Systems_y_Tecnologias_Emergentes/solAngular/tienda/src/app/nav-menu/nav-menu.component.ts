@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CarroCompraService } from '../servicios/carro-compra.service'
 
 @Component({
   selector: 'nav-menu',
@@ -11,8 +12,9 @@ export class NavMenuComponent implements OnInit {
   private url : string
 
   constructor(
-    private router: Router,
-    private activatedRoute : ActivatedRoute //incluir el módulo ActivatedRoute para determinar el url actual
+    private router: Router
+    , private activatedRoute : ActivatedRoute
+    , private carroCompraService : CarroCompraService
   ) { }
 
   ngOnInit() {

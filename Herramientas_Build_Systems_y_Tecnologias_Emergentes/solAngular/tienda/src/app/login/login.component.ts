@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     console.log(form.controls.email.value);
     console.log(form.controls.password.value);
     //console.log(form);
+    sessionStorage.setItem("Carrito", JSON.stringify([]));
 
     this.router.navigate(['home']);
   }

@@ -1,0 +1,42 @@
+<div class="pag-carro">
+  <div class="container">
+    <nav-menu></nav-menu>
+
+    <div class="lista-productos container animated fadeInDownBig fast">
+
+      <h1 class="text-shadow">Carro de Compras</h1>
+
+      <div class="row">
+        <div class="col-7">
+          <div class="row catalogo">
+            <div class="col-12" *ngFor="let prod of this.carroCompraService.items()">
+              <div class="row box">
+                <div class="col-4">
+                  <div class="img grayscale" [ngClass]="{grayscale:(prod.stock <= 0)}">
+                    <img src="{{'./assets/img/' + prod.img}}" alt="{{prod.nombre}}" class="img-responsive">
+
+                  </div>
+                </div>
+                <div class="col-8">
+                  <h4 class="text-shadow">{{prod.nombre}}</h4>
+                  <div><small><b>Precio:</b> $ {{prod.precio}}</small></div>
+                  <div><small><b>Unidades: </b>{{prod.cantidad}}</small></div>
+                  <div><small><b>Subtotal: </b>{{prod.precio * prod.cantidad}}</small></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div><b>TOTAL:</b> $ {{this.carroCompraService.total()}}</div>
+          <button type="button" class="btn btn-danger" [disabled]="(this.carroCompraService.contador() <= 0)" (click)="vaciarCarro()">Vaciar</button>
+          <button type="button" class="btn btn-primary" [disabled]="(this.carroCompraService.contador() <= 0)" (click)="pagar()">Pagar</button>
+          <a [routerLink]="['/home']" class="btn btn-secondary" role="button">Seguir Comprando</a>
+        </div>
+      </div>
+
+
+    <div>
+  </div>
+</div>

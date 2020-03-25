@@ -23,6 +23,7 @@ export class ProductosService {
           this.productos = [];
           for (let key in data) {
             aux = data[key];
+            aux['_key'] = key;
             console.log (key, aux);
             this.productos.push(aux);
           }
@@ -42,5 +43,34 @@ export class ProductosService {
       }
     }
     return null;
+  }
+
+  getInfoProducto(key, callback){
+    this.http.get('https://prueba-tienda-270215.firebaseio.com/productos/'+key+'.json')
+      .map((response: Response) => {
+        return response.json();
+      })
+      .subscribe(
+        (data: Response) => {
+
+          console.log('getInfoProducto -> ', key, data );
+
+          callback(data);
+        }
+      );
+  }
+
+  actualizaStock(key, stock, callback) {
+    let update = {};
+    update[key+'/stock'] = stock;
+    this.http.patch('https://prueba-tienda-270215.firebaseio.com/productos/.json', update)
+      .subscribe(
+        (data: Response) => {
+
+          console.log('actualizaStock -> ', data );
+
+          callback(data);
+        }
+      );
   }
 }
